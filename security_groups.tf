@@ -65,7 +65,7 @@ resource "aws_security_group" "rds_sg" {
 resource "aws_security_group" "alb_sg" {
   name        = "alb-security-group"
   description = "groupe de sécurité pour l'application load balancer"
-  vpc_id      = aws_vpc.default.id
+  vpc_id      = aws_vpc.main_vpc.id
 
   ingress {
     from_port   = 80

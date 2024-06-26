@@ -18,7 +18,12 @@ resource "aws_db_instance" "kawordpressdb" {
 
 resource "aws_db_subnet_group" "ka_db_subnet_group" {
   name = var.rds_db_subnet_group
-  subnet_ids = [aws_subnet.private_subnet.id, aws_subnet.public_subnet.id]
+  subnet_ids = [
+  aws_subnet.private_subnet_main.id,
+  aws_subnet.private_subnet_second.id,
+  aws_subnet.public_subnet_main.id,
+  aws_subnet.public_subnet_second.id
+]
 
   tags = {
     Name = "ka_db_subnet_group"

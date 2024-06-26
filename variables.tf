@@ -45,7 +45,7 @@ variable "rds_allocated_storage" {
 
 variable "rds_identifier" {
   description = "Le nom de notre instance RDS"
-  default     = 20
+  default     = "kawordpressdb"
 }
 
 variable "rds_engine" {

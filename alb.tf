@@ -1,14 +1,19 @@
 resource "aws_lb" "lb" {
-  name               = "ka_lb"
+  name               = "ka-lb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = [aws_subnet.private_subnet_main, aws_subnet.private_subnet_second, aws_subnet.public_subnet_main, aws_subnet.public_subnet_second]
+  subnets = [
+  aws_subnet.private_subnet_main.id,
+  aws_subnet.private_subnet_second.id,
+  aws_subnet.public_subnet_main.id,
+  aws_subnet.public_subnet_second.id
+]
   enable_deletion_protection = false
 }
 
 resource "aws_lb_target_group" "lbtg" {
-  name     = "ka_lbtg"
+  name     = "lbtg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.main_vpc.id
