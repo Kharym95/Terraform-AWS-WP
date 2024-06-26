@@ -55,7 +55,7 @@ variable "rds_engine" {
 
 variable "rds_engine_version" {
   description = "La version du moteur de la base de données"
-  default     = "10.0.38"
+  default     = "10.11.6"
 }
 
 variable "rds_instance_class" {

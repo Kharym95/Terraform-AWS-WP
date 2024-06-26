@@ -1,0 +1,125 @@
+CONTEXTE
+DESCRIPTION DU PROJET
+Ce projet vise à créer une infrastructure AWS pour héberger une application WordPress avec une base de données RDS MySQL.
+
+HYPOTHÈSES, CONTRAINTES ET EXIGENCES GÉNÉRALES
+Les hypothèses et contraintes incluent l'utilisation de Terraform pour la gestion de l'infrastructure, AWS comme fournisseur cloud, et l'implémentation de pratiques de haute disponibilité et de sécurité.
+
+ARCHITECTURE TECHNIQUE CIBLE
+PRINCIPES GÉNÉRAUX
+Utilisation de zones de disponibilité multiples pour la haute disponibilité.
+Sécurité renforcée par des groupes de sécurité bien définis.
+Utilisation de Terraform pour une gestion de l'infrastructure en tant que code.
+ARCHITECTURE LOGIQUE
+COMPOSANTS LOGIQUES
+Les composants logiques incluent VPC, sous-réseaux, groupes de sécurité, instances EC2, RDS, NAT Gateway, Internet Gateway.
+
+MATRICE D'ÉCHANGE DE DONNÉES
+Les échanges de données se feront principalement via HTTP/HTTPS pour les applications web, et MySQL pour la base de données.
+
+ARCHITECTURE PHYSIQUE
+DISTRIBUTION ET ORGANISATION DES COMPOSANTS DE LA SOLUTION
+Les composants seront organisés en sous-réseaux publics et privés au sein d'un VPC.
+
+FLUX PHYSIQUES ET PROTOCOLES NON-APPLICATIONS
+Les protocoles utilisés incluront TCP pour les connexions HTTP/HTTPS et MySQL.
+
+DISTRIBUTION PHYSIQUE DES ENVIRONNEMENTS LOGIQUES
+Les environnements seront distribués dans des sous-réseaux publics et privés pour la sécurité et la gestion.
+
+ARCHITECTURE DU SYSTÈME
+Comprend les instances EC2 pour l'application WordPress et RDS pour la base de données.
+
+ARCHITECTURE RÉSEAU
+Comprend les sous-réseaux, les tables de routage, les passerelles Internet et NAT.
+
+ÉLÉMENTS LOGICIELS (INFRASTRUCTURE)
+Les éléments logiciels incluent Terraform pour la gestion de l'infrastructure et les logiciels installés sur les instances EC2.
+
+ÉLÉMENTS MATÉRIELS
+Les éléments matériels incluent les types d'instances EC2 et les configurations de stockage.
+
+ARCHITECTURE RÉSEAU
+Comprend les composants réseau et les connexions entre eux.
+
+CONTINUITÉ DU SERVICE TECHNIQUE
+REDONDANCE
+Utilisation de plusieurs zones de disponibilité et sous-réseaux privés et publics pour la redondance.
+
+TOLÉRANCE AUX PANNES
+Mise en place de mécanismes pour tolérer les pannes, tels que les sauvegardes automatiques et les configurations de haute disponibilité.
+
+GESTION DES CLÉS DE CHIFFREMENT
+Gestion des clés de chiffrement via AWS KMS.
+
+FONCTIONS DE SAUVEGARDE ET DE RÉCUPÉRATION
+Mise en place de sauvegardes régulières et de procédures de récupération des données.
+
+GESTION DES CORRECTIFS
+Automatisation de la gestion des correctifs pour maintenir la sécurité et la performance.
+
+RÉPARTITION DE LA CHARGE
+Utilisation de l'équilibrage de charge pour distribuer le trafic et améliorer les performances.
+
+PERFORMANCE
+Optimisation des performances par la configuration des ressources et la surveillance continue.
+
+NORMES ET STANDARDS APPLIQUÉS
+Les normes et standards appliqués incluent les meilleures pratiques de sécurité et de gestion de l'infrastructure.
+
+SÉCURITÉ
+POLITIQUES DE SÉCURITÉ
+Inclut les politiques de sécurité pour la protection des ressources et des données.
+
+AUTHENTIFICATION
+Utilise des clés SSH pour l'authentification des utilisateurs.
+
+AUTHENTIFICATION DES UTILISATEURS FINAUX
+Mécanismes d'authentification pour les utilisateurs finaux pour accéder aux applications.
+
+CONTRÔLE D'ACCÈS ET AUTORISATION
+CONTRÔLE D'ACCÈS
+Défini les règles et les politiques de contrôle d'accès.
+
+AUTORISATION
+Mécanismes d'autorisation pour définir ce que les utilisateurs peuvent faire.
+
+ACTEURS EN RELATION AVEC LE SYSTÈME (GESTION DES RÔLES)
+Gestion des rôles des utilisateurs et des acteurs du système.
+
+RÈGLES D'ACCÈS AU SYSTÈME
+Définition des règles d'accès au système pour assurer la sécurité et la conformité.
+
+CONFIDENTIALITÉ ET INTÉGRITÉ
+Assurer la confidentialité et l'intégrité des données en transit et des données stockées.
+
+DONNÉES EN TRANSIT
+Protection des données en transit à travers des protocoles sécurisés.
+
+DONNÉES STOCKÉES
+Protection des données stockées à travers le chiffrement et d'autres mesures de sécurité.
+
+DONNÉES VOLUMÉTRIQUES
+NOMBRE D'UTILISATEURS
+Estimation du nombre d'utilisateurs pour dimensionner les ressources.
+
+CHARGE DU RÉSEAU
+Estimation de la charge réseau pour s'assurer que l'infrastructure peut la supporter.
+
+CHARGE DES MACHINES
+Évaluation de la charge des machines pour garantir des performances optimales.
+
+VOLUME STOCKÉ
+Quantité de données stockées pour la gestion et la planification de la capacité.
+
+VOLUME DES ÉCHANGES
+Estimation du volume des échanges de données pour dimensionner l'infrastructure.
+
+SURVEILLANCE
+Utilisation d'outils de surveillance pour assurer la disponibilité et la performance des ressources.
+
+ADMINISTRATION ET OPÉRATION
+Inclut les pratiques d'administration et d'exploitation des ressources.
+
+BIBLIOTHÈQUE DE DOCUMENTATION GÉNÉRALE/ANNEXES
+Inclut la documentation générale et les annexes.

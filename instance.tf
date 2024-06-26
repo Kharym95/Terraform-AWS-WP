@@ -1,8 +1,10 @@
 resource "aws_instance" "ka_ec2" {
   ami                    = var.ami
   instance_type          = var.instance_type
-  subnet_id              = aws_subnet.private_subnet_main.id
-  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
+  key_name               = aws_key_pair.ka_ssh.id
+  subnet_id              = aws_subnet.public_subnet_main.id
+  associate_public_ip_address = true
+  vpc_security_group_ids = [aws_security_group.ec2-sg.id]
   tags = {
 
     Name = "KA_WordPress"
@@ -25,7 +27,12 @@ resource "aws_instance" "ka_ec2" {
     sudo tar -xzf latest.tar.gz
     sudo mv wordpress/* .
     sudo rm -r wordpress latest.tar.gz
+    sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
     sudo chown -R www-data:www-data /var/www/html
     sudo chmod -R 755 /var/www/html
+    sudo sed -i "s/database_name_here/"${var.db_name}"/" /var/www/html/wp-config.php
+    sudo sed -i "s/username_here/"${var.db_username}"/" /var/www/html/wp-config.php
+    sudo sed -i "s/password_here/"${var.db_password}"/" /var/www/html/wp-config.php
+    sudo sed -i "s/localhost/"${aws_db_instance.kawordpressdb.address}"/" /var/www/html/wp-config.php
   EOF
 }

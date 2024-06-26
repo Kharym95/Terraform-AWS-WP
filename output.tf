@@ -9,6 +9,6 @@ output "instance_public_ip" {
 }
 
 output "rds_endpoint" {
-  description = "Endpoint de l'instance RDS"
-  value       = aws_db_instance.kawordpressdb.endpoint
+  description = "Adresse de l'instance RDS"
+  value       = aws_db_instance.kawordpressdb.address
 }
